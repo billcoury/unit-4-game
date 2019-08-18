@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="UTF-8">
+	<title>Stars Wars Battle</title>
+	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">	
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Michroma&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+</head>
+<body>
+	<nav class="navbar navbar-default navBG" style="margin-bottom: 450px; border: none;">
+		<div class="container">
+			<header class="text-center benderHeader">
+			<h1>STAR WARS     SHIPS     BATTLE</h1>
+			<h4 class="headerHeroes">Rebels vs Empire</h4>
+			</header>
+		</div>
+		<div class="instructions floatRight">
+	
+			A classic ship battle between Rebels and the Empire.  Choose your ships and click fight.  Each ship has special skills that can be used every other turn.
+		</div>
+	</nav>
+
+	<div class="container" style="margin-top: 20px; min-height: 200px;"> 
+		<div class="row text-center">
+			<div class="col-md-2">
+				<div class="textHeroes">
+					Falcon
+					<div class="divIcon textNeutral">
+						<br><img src="assets\images\falcon.jpg" alt="falcon" class="icons iconsHeroes" id="falcon"><br>
+						100 HEALTH
+					</div>
+				</div>
+			</div>
+			<div class="row text-center">
+			<div class="col-md-2">
+				<div class="textHeroes">
+					X-Wing
+					<div class="divIcon textNeutral">
+						<br><img src="assets\images\X-wing.jpg" alt="xwing" class="icons iconsHeroes" id="xwing"><br>
+						120	HEALTH
+					</div>
+				</div>
+			</div>
+			
+			
+			<div class="col-lg-0 floatRight">
+				<div class="textHeroes">
+					Tie-Fighter
+					<div class="divIcon textNeutral">
+						<br><img src="assets\images\tie-fighter.jpg" alt="tiefighter" class="icons iconsHeroes" id="tiefighter"><br>
+						100 HEALTH
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-3 floatRight">
+				<div class="textHeroes">
+					Interceptor
+					<div class="divIcon textNeutral">
+						<br><img src="assets\images\Interceptor.jpg" alt="Interceptor" class="icons iconsHeroes" id="Interceptor"><br>
+						120	HEALTH
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container arena">
+		<div class="row text-center">
+			<div class="col-md-4">														
+				<div class="divIcon textNeutral floatRight">
+					<br><img src="" alt="Hero" class="iconsArena iconsHeroes invisible" id="arenaHero"><br>					
+				</div>
+				<div class="statsTextHeroes textHeroes floatRight" style="margin-right: 15px;"></div>						
+			</div>	
+			<div class="col-md-4">		
+				<div class="row text-center">
+					<div class="col-md-6 col-md-offset-0 textHeroes invisible" id="heroRTstats">				
+						<div class="textStats">Hero HP:</div>
+						<div id="heroHP">00</div><br> 		 		
+				 		<div class="textStats">Attack Power:</div>
+				 		<div id="heroAP">00</div>
+				 	</div>
+					<div class="col-md-4 textDark invisible" id="darkRTStats">			
+					 	<div class="textStats">DarkSide HP:</div>
+					 	<div id="darkHP" >00</div><br>
+					 	<div class="textStats">Counter Attack Power:</div>
+					 	<div id="darkCAP">00</div>
+					</div>
+				</div>
+			</div>	
+			<div class="col-md-4">
+				<div class="divIcon textNeutral">
+					<br><img src="" alt="Dark Side" class="iconsArena iconsDark invisible" id="arenaDark"><br>									
+				</div>
+				<div class="statsTextDark textDark" style="margin-right: 15px;"></div>				
+			</div>	
+		</div>
+	</div>
+
+
+	<div class="container">
+	
+	</div>
+
+	<div class="container">
+		<div class="row text-center">
+			<div id="fightButton">	
+					<button class="btn btn-default skillsButton" id="theButton">Fight</button>
+					<button class="btn btn-default skillsButton faded" id="skill1">Skill 1</button>
+					<button class="btn btn-default skillsButton faded" id="skill2">Skill 2</button>
+					<button class="btn btn-default skillsButton faded" id="skill3">Skill 3</button>
+					<button class="btn btn-default" id="restartButton">Restart</button>					
+			</div>
+		</div>
+	</div>
+	
+	
+
+	<div style="height: 100px"></div>
+	<footer class="footer navbar topMarginOnly">
+  		<h5 class="text-center">A Bill Coury Project</h5>  
+	</footer>
+
+<script type="text/javascript" src="assets/javascript/game.js"></script>
+</body>
+</html>
