@@ -1,6 +1,6 @@
 # unit-4-game
 
-The link to this website is  https://billcoury.github.io/unit-4-game/Star Wars Ship Battle.html
+The link to this website is  https://billcoury.github.io/unit-4-game/StarWarsShipBattle.html
 
 
 I used a bootstrap platform for this game,
