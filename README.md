@@ -8,6 +8,7 @@ The game simulates a battle between Rebel ships and Empire ships.
 Each ship has certain health and attack amounts.
 I also pieced together code that allows a special skill to be used every other turn.
 
-Unfortunately, i'm really struggling with layout.  After days of debugging, i still can't figure out why i can't populate the Empire ships.  I know it's a layout/format/col/row issue.  But i can't seem to find it.
+Unfortunately, i'm really struggling with layout.  After days of debugging, I know it's a layout/format/col/row issue.  
+But i can't seem to find it.
 
 Will keep working on it.
