@@ -2,27 +2,20 @@ html, body {
 	height: 100%;
 }
 body {
-    background-image: url("https://newwallpaperdownload.com/wallpapers/Star-Wars-Wallpaper-On-Wallpaper-Hd-12.jpg");
-	font-size: 14pt;		
-	font-family: 'Michroma', sans-serif;
-	color: #a6a6a6;
+		background-image: url("https://newwallpaperdownload.com/wallpapers/Star-Wars-Wallpaper-On-Wallpaper-Hd-12.jpg");
+		font-size: 14pt;		
+		font-family: 'Michroma', sans-serif;
+		color: #a6a6a6;
 }
 h1 {
 	font-family: 'Michroma', sans-serif;
-	font-size: 24pt;
+	font-size: 28pt;
 	word-spacing: 10px;
+	
 }
 h4 {
 	margin: 0;
-	font-size: 18pt;
-}
-.instructions {
-	font-size: 8pt;
-	height: 180px;
-	width: 280px;
-	margin: 0 auto;
-	margin-right: 1in;
-
+	font-size: 24pt;
 }
 .container {
 	max-width: 1080px;
@@ -34,7 +27,7 @@ h4 {
 	color: #a6a6a6;
 }
 .navBG {
-    background-image: url("https://newwallpaperdownload.com/wallpapers/Star-Wars-Wallpaper-On-Wallpaper-Hd-12.jpg");
+	background-image: url("https://cdn.shutterstock.com/shutterstock/videos/13024982/thumb/1.jpg");
 }
 .icons {
 	height: 130px;
@@ -51,30 +44,34 @@ h4 {
 	cursor: pointer;
 }
 .iconsHeroes {
-	border: 4px inset #ffcc00;
+	border: 4px inset white;
 }
 .iconsDark {
-	border: 4px inset #cc0000;
+	border: 4px inset white;
 }
 .textHeroes{
-	color: white
+	color: white;
 	min-width: 100px;
 }
 .textDark {
 	color: white;
 }
 .textNeutral {
-	color: #009900;
+	color: white;
 }
 .divIcon {
 	font-size: 9pt;
 	height: 180px;
 	width: 146px;
-	border: 4px inset #fcd7d7;
+	border: 4px inset #d9d9d9;
 	margin: 0 auto;
 	margin-top: 5px;
 }
-
+.VS {
+	font-family: 'Michroma', sans-serif;
+	font-size: 30pt;
+	margin-top: 100px;
+}
 .arena {
 	margin-top: 50px;
 	margin-bottom: 10px;

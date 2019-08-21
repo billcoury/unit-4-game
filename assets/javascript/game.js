@@ -9,7 +9,7 @@ $(document).ready(function(){
 		darkSS: 0,
 		level: 6,
 		skillsCounter: 1,
-		ForceCounter: 0,
+		poisonCounter: 0,
 		bombardment: 0,
 		rally: 0,
 		fight: false,
@@ -18,12 +18,12 @@ $(document).ready(function(){
 		darkWin: false,	
 		endGame: false,
 
-		falcon: [100, 4, "Falcon", true, "Thick Skin", false, "Empower", false, "Bombardment", false],
-		xwing: [120, 4, "xwing", true, "Force", false, "Sneak Attack", false, "Rally Tribe", false],
-		tiefighter: [200, 6, "Tie-Fighter", true],
-		tiefighter: [250, 15, "Darth tiefighter", true],
+		falcon: [100, 4, "falcon", true, "Hyperdrive", false, "Where It Counts", false, "Bombardment", false],
+		xwing: [120, 4, "xwing", true, "Poison", false, "Sneak Attack", false, "Red 5", false],
+		interceptor: [200, 6, "interceptor", true],
+		tiefighter: [250, 15, "tiefighter", true],
 
-		tiefighterSkills: ["Force Drain", "Force Choke", "Thought Bomb"],
+		interceptorSkills: ["Force Drain", "Mask", "Knights"],
 		tiefighterSkills: ["Force Lightning", "Force Destruction", "Force Rage"],
 
 		heroDisplay: function() {			
@@ -31,17 +31,17 @@ $(document).ready(function(){
 				$("#arenaHero").attr("src", "assets/images/falcon.jpg");
 				$(".statsTextHeroes").html("falcon:<br> 100 HP<br>Attack Power: 4<br> Power Increment: 4");		
 				$(".statsTextHeroes").append("<br><br>Skills: <br>");
-				$(".statsTextHeroes").append("1: Thick Skin: Block 100% damage<br>");
-				$(".statsTextHeroes").append("2: Empower: Gain 50% of current AP<br>");
+				$(".statsTextHeroes").append("1: Hyperdrive: Block 100% damage<br>");
+				$(".statsTextHeroes").append("2: Where It Counts: Gain 50% of current AP<br>");
 				$(".statsTextHeroes").append("3: Bombardment: Inflict 1-50 damage<br>");
 				starWars.heroDisplaymicro();
 				$("#falcon").addClass("faded");
 			}
 			else if(starWars.hero === starWars.xwing) {
-				$("#arenaHero").attr("src", "assets/images/X-Wing.jpg");				
+				$("#arenaHero").attr("src", "assets/images/xwing.jpg");				
 				$(".statsTextHeroes").html("xwing:<br> 120 HP<br>Attack Power: 4<br> Power Increment: 4");
 				$(".statsTextHeroes").append("<br><br>Skills: <br>");
-				$(".statsTextHeroes").append("1: Force: Prevent enemy skill<br>");
+				$(".statsTextHeroes").append("1: Poison: Prevent enemy skill<br>");
 				$(".statsTextHeroes").append("2: Sneak: Deal 1.3 times AP <br>");
 				$(".statsTextHeroes").append("3: Rally: Deal and block 3-12 damage<br>");
 				starWars.heroDisplaymicro();
@@ -56,26 +56,26 @@ $(document).ready(function(){
 		},
 
 		darkDisplay: function() {			
-			if(starWars.dark === starWars.tiefighter) {								
-				$("#arenaDark").attr("src", "assets/images/tie-fighter.jpg");
-				$(".statsTextDark").html("tiefighter:<br> 200 HP<br> Counter Attack Power: 6");
+			if(starWars.dark === starWars.interceptor) {								
+				$("#arenaDark").attr("src", "assets/images/interceptor.jpg");
+				$(".statsTextDark").html("interceptor:<br> 200 HP<br> Counter Attack Power: 6");
 				$(".statsTextDark").append("<br><br>Skills: <br>");
 				$(".statsTextDark").append("Force Drain: Current Hero HP / 10<br>");
-				$(".statsTextDark").append("Force Choke: CAP * 3<br>"); 
-				$(".statsTextDark").append("Thought Bomb: Initial Hero AP * 2");
+				$(".statsTextDark").append("Mask: CAP * 3<br>"); 
+				$(".statsTextDark").append("Knights: Initial Hero AP * 2");
 				starWars.darkDisplaymicro();									
-				$("#tiefighter").addClass("faded");
+				$("#interceptor").addClass("faded");
 			}
 
 			else if(starWars.dark === starWars.tiefighter) {
 				$("#arenaDark").attr("src", "assets/images/tiefighter.jpg");
-				$(".statsTextDark").html("tiefighter:<br> 250 HP <br> Counter Attack Power: 15");
+				$(".statsTextDark").html("Vader:<br> 250 HP <br> Counter Attack Power: 15");
 				$(".statsTextDark").append("<br><br>Skills: <br>");
 				$(".statsTextDark").append("Force Lightning: Current CAP * 2<br>");
 				$(".statsTextDark").append("Force Destruction: Hero HP / 2<br>"); 
 				$(".statsTextDark").append("Force Rage: Increment CAP by 5");
 				starWars.darkDisplaymicro();
-				$("#darthtiefighter").addClass("faded");
+				$("#tiefighter").addClass("faded");
 			}
 		},
 
@@ -115,7 +115,7 @@ $(document).ready(function(){
 
 				$("#specialBox").html(starWars.hero[2] + " inflicts " + heroAP + " damage<br>");
 				if (starWars.hero[2] === "falcon" && starWars.hero[7] === true) {
-					$("#specialBox").append(starWars.hero[2] + " uses Empower - increasing AP by " + (Math.floor(heroAP / 3)) + "<br>");
+					$("#specialBox").append(starWars.hero[2] + " uses Where It Counts - increasing AP by " + (Math.floor(heroAP / 3)) + "<br>");
 					starWars.hero[7] = false;					
 				}	
 				else if (starWars.hero[2] === "falcon" && starWars.hero[9] === true) {
@@ -158,13 +158,13 @@ $(document).ready(function(){
 					$("#skill1, #skill2, #skill3").addClass("faded");
 				}
 				if (darkHP <= 0) {			
-					//$("#msgBox").html("The Dark side is no match to the " + starWars.hero[2]);
-					$("#specialBox").append("<br><br>" + "The Dark side is no match to the " + starWars.hero[2]);
+					//$("#msgBox").html("The Empire is no match to the " + starWars.hero[2]);
+					$("#specialBox").append("<br><br>" + "The Empire is no match to the " + starWars.hero[2]);
 					darkHP = 0;
-					if (starWars.dark[2] === 'Kylo Ren') {
+					if (starWars.dark[2] === 'interceptor') {
 						starWars.interceptor[3] = false;
 					}		
-					if (starWars.dark[2] === 'Darth tiefighter') {
+					if (starWars.dark[2] === 'tiefighter') {
 						starWars.tiefighter[3] = false;
 					}		
 					starWars.hero[0] = heroHP;
@@ -231,28 +231,28 @@ $(document).ready(function(){
 		darkSpecialSkill: function() {
 			var randomNumber = Math.floor(Math.random() * starWars.level);
 
-			if (starWars.hero[2] === "xwing" && starWars.hero[5] === true && starWars.ForceCounter > 0  ) {									
+			if (starWars.hero[2] === "xwing" && starWars.hero[5] === true && starWars.poisonCounter > 0  ) {									
 						starWars.darkSS = 0;
-						starWars.ForceCounter--;
-						//if (starWars.ForceCounter === 0) {
+						starWars.poisonCounter--;
+						//if (starWars.poisonCounter === 0) {
 						//	starWars.hero[5] === false;
 						//}
-						if (starWars.ForceCounter === 0) {
+						if (starWars.poisonCounter === 0) {
 							darkHP -= heroAP;
-							$("#specialBox").append(starWars.hero[2] + " uses Force to interrupt spells<br>");	
+							$("#specialBox").append(starWars.hero[2] + " uses Poison to interrupt spells<br>");	
 						}
 						if (randomNumber < 3) {
-							if (starWars.dark[2] === "Kylo Ren") {
-								$("#specialBox").append(starWars.dark[2] + " failed to cast " + starWars.interceptorSkills[randomNumber] + " due to Force");
+							if (starWars.dark[2] === "interceptor") {
+								$("#specialBox").append(starWars.dark[2] + " failed to cast " + starWars.interceptorSkills[randomNumber] + " due to poison");
 							}
-							else if (starWars.dark[2] === "Darth tiefighter") {
-								$("#specialBox").append(starWars.dark[2] + " failed to cast " + starWars.tiefighterSkills[randomNumber] + " due to Force");
+							else if (starWars.dark[2] === "tiefighter") {
+								$("#specialBox").append(starWars.dark[2] + " failed to cast " + starWars.tiefighterSkills[randomNumber] + " due to poison");
 							}
 						}
 			}
 
-			else if (starWars.ForceCounter === 0) {
-				if (starWars.dark[2] === "Kylo Ren") {
+			else if (starWars.poisonCounter === 0) {
+				if (starWars.dark[2] === "interceptor") {
 					switch (randomNumber) {
 						case 0:
 							starWars.darkSS = Math.floor(heroHP / 10);
@@ -272,10 +272,10 @@ $(document).ready(function(){
 
 					starWars.firstSkill();
 					if (starWars.darkSS !== 0) {
-						$("#specialBox").append("Kylo Ren inflicts " + starWars.interceptorSkills[randomNumber] + " for an additional " + starWars.darkSS + " damage");
+						$("#specialBox").append("interceptor inflicts " + starWars.interceptorSkills[randomNumber] + " for an additional " + starWars.darkSS + " damage");
 					}
 				}
-				if (starWars.dark[2] === "Darth tiefighter") {
+				if (starWars.dark[2] === "tiefighter") {
 					switch (randomNumber) {
 						case 0:
 							starWars.darkSS = darkCAP * 2;
@@ -286,7 +286,7 @@ $(document).ready(function(){
 						case 2:						
 							starWars.darkSS = 0;
 							darkCAP += 5;
-							$("#specialBox").append("Darth tiefighter uses "+ starWars.tiefighterSkills[randomNumber] + " increasing his CAP by five");
+							$("#specialBox").append("tiefighter uses "+ starWars.tiefighterSkills[randomNumber] + " increasing his CAP by five");
 							break;
 						case 3: 
 						case 4:
@@ -296,7 +296,7 @@ $(document).ready(function(){
 					}
 
 					if (starWars.darkSS !== 0) {					
-						$("#specialBox").append("Darth tiefighter inflicts "+ starWars.tiefighterSkills[randomNumber] + " for an additional " + starWars.darkSS + " damage");
+						$("#specialBox").append("tiefighter inflicts "+ starWars.tiefighterSkills[randomNumber] + " for an additional " + starWars.darkSS + " damage");
 					}
 				}
 			}
@@ -329,16 +329,16 @@ $(document).ready(function(){
 		wipeOut: function() {
 			$("#arenaHero, #arenaDark, #heroRTstats, #darkRTStats").addClass("invisible");
 			$(".statsTextHeroes, .statsTextDark").empty();
-			$("#specialBox").html("Defeat the Dark Side with your crossbows and spears!<br>");
-			$("#specialBox").append("Attack Power(AP) is used to damage a Sith. Counter Attack Power(CAP) is the Sith's equivalent<br>");
+			$("#specialBox").html("Defeat the Empire using iconic ships!<br>");
+			$("#specialBox").append("Attack Power(AP) is used to damage the Empire. Counter Attack Power(CAP) is the Empire's equivalent<br>");
 			$("#specialBox").append("Using attack button damages the enemy and increments your AP<br>");
-			$("#specialBox").append("A Sith randomly casts a strong spell<br>");
+			$("#specialBox").append("An Empire ship randomly uses the force<br>");
 			$("#specialBox").append("You can use a special skill every other turn");
 			$("#heroHP, #darkHP, #heroAP, #darkCAP").html(00);
 			$("#theButton").html("Fight");
 			$("#theButton").removeClass("faded");
 			$("#msgBox").html("Read guide below.<br>");
-			$("#msgBox").append("Select a Hero and a Sith then click Fight to start.");			
+			$("#msgBox").append("Select a Rebel ship and an Empire ship then click Fight to start.");			
 
 			starWars.hero = "";
 			starWars.dark = "";
@@ -348,14 +348,14 @@ $(document).ready(function(){
 			starWars.darkWin = false;	
 			starWars.endGame = false;
 			starWars.skillsCounter = 1;
-			starWars.ForceCounter = 0;
+			starWars.poisonCounter = 0;
 
-			starWars.falcon = [100, 4, "falcon", true, "Thick Skin", false, "Empower", false, "Bombardment", false];
-			starWars.xwing = [120, 5, "xwing", true, "Force", false, "Sneak Attack", false, "Rally Tribe", false];
-			starWars.interceptor = [200, 6, "Kylo Ren", true];
+			starWars.falcon = [100, 4, "falcon", true, "Hyperdrive", false, "Where It Counts", false, "Bombardment", false];
+			starWars.xwing = [120, 5, "xwing", true, "Poison", false, "Sneak Attack", false, "Red 5", false];
+			starWars.interceptor = [200, 6, "interceptor", true];
 			starWars.tiefighter = [250, 15, "tiefighter", true];
 
-			$("#interceptor, #darthtiefighter, #falcon, #xwing").removeClass("faded");
+			$("#interceptor, #tiefighter, #falcon, #xwing").removeClass("faded");
 
 			$("#skill1, #skill2, #skill3").addClass("faded");
 		},
@@ -367,12 +367,12 @@ $(document).ready(function(){
 
 		endGameFunc: function() {
 			if (starWars.interceptor[3] === false && starWars.tiefighter[3] === false) {
-				$("#msgBox").html("You have destroyed the Dark Side!");
+				$("#msgBox").html("You have destroyed the Empire!");
 				$("#darkHP").html("0");
 				starWars.goodGame();
 			}	
 			else if (starWars.falcon[3] === false && starWars.xwing[3] === false) {
-				$("#msgBox").html("You lost to the Dark Side");
+				$("#msgBox").html("You lost to the Empire");
 				$("#heroHP").html("0");
 				starWars.goodGame();
 			}	
@@ -403,7 +403,7 @@ $(document).ready(function(){
 		if (starWars.fight === false && starWars.interceptor[3] === true) {
 			starWars.dark = starWars.interceptor;
 			if (starWars.interceptor[3] === true) {
-				$("#tiefighter").removeClass("faded");
+				$("#darthvader").removeClass("faded");
 			}
 			starWars.darkDisplay();	
 		}
@@ -464,7 +464,7 @@ $(document).ready(function(){
 	$("#skill1").click(function() {
 		if (starWars.endGame === false && starWars.fight === true && (starWars.skillsCounter % 2) === 0) {
 			if (starWars.hero[2] === "xwing") {		
-				starWars.ForceCounter = 1;
+				starWars.poisonCounter = 1;
 			}
 			starWars.hero[5] = true;
 			starWars.attack();
